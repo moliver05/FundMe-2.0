@@ -1,24 +1,33 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
-
-/*
-  import { Link } from 'react-router-dom';
-  <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
-*/
+import Beerlist from './BeerList';
+import BeerPage from './BeerPage';
+import { Header } from './Header';
+var image = require("../img/wallpaper.jpeg");
 
 function App(){
-  var styles = {
-  };
+  var bodyStyle = {
+    border: "2px solid orange",
+    padding: "50px",
+    backgroundImage: "url("+image+")",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    color: "orange",
+    marginTop: "50px",
+  }
   return (
-    <div style={styles}>
+    <div>
       <style jsx>{`
         font-family: Helvetica;
       `}</style>
-      tap-room
-      {/* <Switch>
+      <div style={bodyStyle}>
+      <Switch>
         <Route exact path='/' component={} />
-      </Switch> */}
+        <Route exact path='/beers' component={Beerpage} />
+        <Route exact path='/' component={} />
+      </Switch>
+      </div>
     </div>
   );
 }
