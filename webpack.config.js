@@ -27,16 +27,6 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        enforce: "pre",
-        loader: "eslint-loader",
-        exclude: /node_modules/,
-        options: {
-          emitWarning: true,
-          configFile: "./.eslintrc.json"
-          }
-      },
-      {
-        test: /\.jsx?$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         options: {
@@ -45,11 +35,18 @@ module.exports = {
             "react",
           ],
           plugins: [
-            "react-hot-loader/babel",
-            "styled-jsx/babel"
+            "react-hot-loader/babel"
           ]
         }
       },
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        loader: 'url-loader?limit=8192'
+      },
+      {
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader']
+      }
     ],
   },
   plugins: [
@@ -58,7 +55,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:'template.ejs',
       appMountId: 'react-app-root',
-      title: 'tap-room',
+      title: 'social-media-clone',
       filename: resolve(__dirname, "build", "index.html"),
     }),
   ]

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,8 +5,9 @@ function Beer(props) {
 
   return (
     <div>
+  
       <div className></div>
-      <div className="panel panel-warning">
+      <div className="panel panel-default">
         <div className="panel-heading">
           <hr/>
           <br/>
@@ -22,6 +22,7 @@ function Beer(props) {
         </div>
       </div>
     </div>
+  
   );
 }
 

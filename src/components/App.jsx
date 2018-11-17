@@ -1,32 +1,40 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React from 'react';
-//import PropTypes from 'prop-types';
+import BeerList from './BeerList';
+import Beer from './BeerPage';
+import TopNav from './Topnav';
+import NewBeer from './NewBeer';
 import { Switch, Route } from 'react-router-dom';
-import Beerlist from './BeerList';
-import BeerPage from './BeerPage';
-import { Header } from './Header';
-var image = require("../img/wallpaper.jpeg");
+import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
+var image = require('../img/wallpaper.jpeg');
+
+//import PropTypes from "prop-types";
 
 function App(){
+  var styles = {
+    backgroundColor: 'black'
+  };
   var bodyStyle = {
-    border: "2px solid orange",
-    padding: "50px",
-    backgroundImage: "url("+image+")",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    color: "orange",
-    marginTop: "50px",
-  }
+    border: '5px solid gold',
+    padding: '50px',
+    height: '100%',
+    backgroundImage: 'url('+image+')',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    color: 'orange',
+    marginTop: '50px',
+  };
   return (
-    <div>
-      <style jsx>{`
-        font-family: Helvetica;
-      `}</style>
+    <div style={styles}>
+      <TopNav />
+      <Header />
       <div style={bodyStyle}>
-      <Switch>
-        <Route exact path='/' component={} />
-        <Route exact path='/beers' component={Beerpage} />
-        <Route exact path='/' component={} />
-      </Switch>
+        <Switch>
+          <Route exact path='/' component={BeerList} />
+          <Route path='/newbeer' component={NewBeer} />
+        </Switch>
       </div>
     </div>
   );

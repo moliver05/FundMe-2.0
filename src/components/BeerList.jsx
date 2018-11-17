@@ -40,7 +40,7 @@ const masterBeerStock = [
   }
 ];
 
-function BeerList(){
+export function BeerList(){
   return (
     <div>
       {masterBeerStock.map((beers, index) =>
@@ -54,4 +54,5 @@ function BeerList(){
   );
 }
 
-export default masterBeerStock;
+export default BeerList;
+
