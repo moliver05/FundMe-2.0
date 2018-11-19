@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function Schedule(props) {
 
@@ -8,8 +8,8 @@ function Schedule(props) {
       <div className></div>
       <div className="panel panel-default">
         <div className="panel-heading">
-        <hr/>
-        <br/>
+          <hr/>
+          <br/>
           <h3 className="panel-title">{props.season}</h3>
         </div>
         <br/>

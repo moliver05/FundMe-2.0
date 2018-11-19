@@ -23,8 +23,14 @@ function App(){
     backgroundImage: 'url('+image+')',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    color: 'orange',
+    color: 'silver',
     marginTop: '50px',
+    marginRight: '25px',
+    marginLeft: '25px',
+  
+    fontFamily: 'Palatino',
+    fontStyle: 'bold',
+    fontSize: '30px'
   };
   return (
     <div style={styles}>

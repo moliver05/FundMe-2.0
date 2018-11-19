@@ -1,27 +1,35 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-
+// eslint-disable-next-line no-undef
+var image = require('../img/header.jpg');
 
 function TopNav(){
   var styles = {
-    fontSize: '25px', 
-    justifyContent: 'space-between',
-    border: '10px solid gold',
-    opacity: '.5',
-    paddingBottom: '15px',
-    backgroundColor: 'indigo',
-    width: '700px',
-    marginLeft: '350px'
-
+    backgroundImage: 'url('+image+')',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: '800px',
+    width: '100%',
+    
   };
   var headStyles = {
-    textAlign: 'center',
-    color: 'white'
+    right: '200',
+    top: '50',
+    position: 'absolute',
+    fontSize: '40px',
+    fontFamily: 'Georgia',
+    fontStyle: 'bold',
+    color: 'lime',
+    textAlign: 'justify'
+
   };
   return (
     <div style={styles}>
       <div style={headStyles}>
-          $$ BOOZEEE $$
+        <div className="animated infinite bounce delay-2s"> Happy Hour Schedule 
+          <br/>
+          9 - 12 pm.
+        </div>
       </div>
     </div>
   
