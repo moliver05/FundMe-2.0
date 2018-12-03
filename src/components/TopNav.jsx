@@ -13,8 +13,8 @@ function TopNav(){
     
   };
   var headStyles = {
-    right: '200',
-    top: '50',
+    right: '200px',
+    top: '50px',
     position: 'absolute',
     fontSize: '40px',
     fontFamily: 'Georgia',

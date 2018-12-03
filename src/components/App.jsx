@@ -19,7 +19,8 @@ var bodyStyle = {
   backgroundImage: 'url('+image+')',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  color: 'teal',
+  color: 'white',
+  opacity: '.5',
   marginTop: '50px',
   marginRight: '25px',
   marginLeft: '25px',
@@ -42,7 +43,8 @@ constructor(props) {
 handleAddNewBeer(newBeer){
   var newMasterBeerStock = this.state.masterBeerStock.slice();
   newMasterBeerStock.push(newBeer);
-  this.setState({masterKegList: newMasterBeerStock});
+  this.setState({masterBeerStock: newMasterBeerStock});
+  console.log(newMasterBeerStock);
 };
 
 HappyHourSchedule () {
@@ -56,7 +58,7 @@ render(){
       <Header />
       <div style={bodyStyle}>
         <Switch>
-          <Route exact path='/' component={BeerList} />
+          <Route exact path='/' render= {() => <BeerList beerStock={this.state.masterBeerStock} />} />
           <Route path='/newBeer' render= {() => <NewBeer createBeer ={this.handleAddNewBeer}/>} />
           <Route component={Error404} />
         </Switch>

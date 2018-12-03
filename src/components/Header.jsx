@@ -12,7 +12,7 @@ function Header(){
   return (
     <div style={routeGuide}>
       <h3>Guide</h3>
-      <Link to="/" className="btn btn-danger">Home</Link>
+      <Link to="/" className="btn btn-danger">Our Beers</Link>
       <Link to="/newbeer" className="btn btn-success">Add New Beer</Link> 
 
     </div>

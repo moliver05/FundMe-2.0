@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-;
+import PropTypes from 'prop-types';
+
 
 function NewBeer(props) {
 
   let _name = null;
   let _price = null;
+  let _type = null;
   let _remaining = null;
 
   function handleNewBeer(event) {
@@ -14,11 +15,11 @@ function NewBeer(props) {
                       type: _type.value,
                       price: _price.value,
                       remaining: _remaining.value});
-    name.value='';
-    type.value='';
-    price.value='';
-    remaining.value='';
-  }
+    _name.value='';
+    _type.value='';
+    _price.value='';
+    _remaining.value='';
+  };
 
   return (
     <div>
@@ -40,7 +41,7 @@ function NewBeer(props) {
 
         <label>Price</label>
         <input
-          type='number'
+          type='text'
           placeholder='$$' 
           ref={(input) => {_price = input;}} />
         <br />
@@ -58,7 +59,7 @@ function NewBeer(props) {
     </div>
   );
 }
-AddBeer.propTypes = {
+NewBeer.propTypes = {
   createBeer: PropTypes.func,
 };
 
