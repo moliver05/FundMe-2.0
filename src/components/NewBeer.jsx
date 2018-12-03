@@ -1,43 +1,65 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import React from 'react';
-import BeerPage from './BeerPage';
+;
 
-function NewBeer() {
+function NewBeer(props) {
+
+  let _name = null;
+  let _price = null;
+  let _remaining = null;
+
+  function handleNewBeer(event) {
+    event.preventDefault();
+    props.createBeer({name: _name.value,
+                      type: _type.value,
+                      price: _price.value,
+                      remaining: _remaining.value});
+    name.value='';
+    type.value='';
+    price.value='';
+    remaining.value='';
+  }
+
   return (
     <div>
-      <form>
+       <form onSubmit={handleNewBeer}>
         <label>Name</label><input
           type='text'
-          placeholder='product name' />
+          placeholder='product name'
+          ref={(input) => {_name = input;}} />
+        <br />
+        <hr />
+
+      <label>Type</label>
+        <input
+          type='text'
+          placeholder='$$' 
+          ref={(input) => {_type = input;}} />
         <br />
         <hr />
 
         <label>Price</label>
         <input
-          placeholder='$$' />
+          type='number'
+          placeholder='$$' 
+          ref={(input) => {_price = input;}} />
         <br />
         <hr />
 
-        <label>Location</label>
+        <label>Remaining</label>
         <input
           type='text'
-          placeholder='address' />
+          placeholder='Stocks'
+          ref={(input) => {_remaining = input;}}  />
         <br />
         <hr />
-
-        <label>Kind</label>
-        <input
-          type='text'
-          placeholder='fruits, veggies, etc' />
-
-
-        <br />
         <button className="btn btn-success" type='submit'>ADD!</button>
       </form>
     </div>
   );
 }
-
+AddBeer.propTypes = {
+  createBeer: PropTypes.func,
+};
 
 export default NewBeer;
