@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 function Beer(props) {
 
   <style jsx global>{`
@@ -23,6 +24,7 @@ function Beer(props) {
           </ul>
           <hr/>
         </div>
+        <button className="btn btn-warning">Edit</button>
       </div>
     </div>
     

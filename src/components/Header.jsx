@@ -13,8 +13,8 @@ function Header(){
     <div style={routeGuide}>
       <h3>Guide</h3>
       <Link to="/" className="btn btn-danger">Our Beers</Link>
-      <Link to="/newbeer" className="btn btn-success">Add New Beer</Link> 
-
+      <Link to="/newbeer" className="btn btn-success">Add New Beer</Link>
+      <Link to="/startHappyHour" className="btn btn-primary"> ^.^ Hour</Link>
     </div>
   );
 }

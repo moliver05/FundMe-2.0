@@ -1,25 +1,29 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Beer from './BeerPage';
 
 
 function BeerList(props){
   return (
     <div>
-      {props.beerStock.map((beers, index) =>
-        <Beer
-          name={beers.name}
-          type={beers.type}
-          price={beers.price}
-          remaining={beers.remaining}
-          key={index}/>
-      )}
+       {Object.keys(props.kegList).map(function(key) {
+        var beer = props.kegList[key];
+        return <Beers name={beer.name}
+        type={beer.type}
+        price={beer.price}
+        remaining={beer.remaining}
+        currentRouterPath={props.currentRouterPath}
+        key={key}
+        beerId={key}
+        onKegSelection={props.onKegSelection}/>;
+      })}
     </div>
   );
 }
 
 BeerList.propTypes = {
-  beerStock: PropTypes.array
+  beerStock: PropTypes.object,
+  currentRouterPath: PropTypes.string,
+  onKegSelection: PropTypes.func
 };
 
 export default BeerList;
