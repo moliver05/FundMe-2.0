@@ -3,7 +3,8 @@ import BeerList from './BeerList';
 import TopNav from './Topnav';
 import Header from './Header';
 import Error404 from './Error404';
-import Admin from './Admin';
+import Admin from './Admin';  
+import { v4 } from 'uuid';
 // import HappyHour from './HappyHour';
 import { Switch, Route } from 'react-router-dom';
 var image = require('../img/wallpaper.jpeg');
@@ -87,10 +88,12 @@ constructor(props) {
 };
 
 handleAddNewBeer(newBeer){
-  var newMasterBeerStock = this.state.masterBeerStock.slice();
-  newMasterBeerStock.push(newBeer);
-  this.setState({masterBeerStock: newMasterBeerStock});
-};
+    let newBeerId = v4();
+    let newMasterBeerStock = Object.assign({}, this.state.masterBeerStock, {
+      [newBeerId]: newBeer
+    });
+    this.setState({masterBeerStock: newMasterBeerStock});
+  }
 
 handleEditBeer(beer){
   let newMasterBeerStock = Object.assign({}, this.state.masterBeerStock, {
@@ -119,7 +122,7 @@ render(){
               currentRouterPath={props.location.pathname}
               addBeer={this.handleAddNewBeer}
               onBeerSelection={this.handleBeerSelection}
-              selectedKeg={this.state.selectedbeer}
+              selectedBeer={this.state.selectedbeer}
               onEditBeer={this.handleEditBeer}/>} />
           }/> 
           <Route component={Error404} />

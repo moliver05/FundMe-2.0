@@ -4,14 +4,17 @@ import PropTypes from 'prop-types';
 
 function NewBeer(props) {
 
+  var styles={
+    color: 'white'
+  }
   let _name = null;
   let _price = null;
   let _type = null;
   let _remaining = null;
 
-  function handleNewBeer(event) {
+  function handleAddNewBeer(event) {
     event.preventDefault();
-    props.createBeer({name: _name.value,
+    props.addBeer({name: _name.value,
                       type: _type.value,
                       price: _price.value,
                       remaining: _remaining.value});
@@ -22,8 +25,8 @@ function NewBeer(props) {
   };
 
   return (
-    <div>
-       <form onSubmit={handleNewBeer}>
+    <div style={styles}>
+       <form onSubmit={handleAddNewBeer}>
         <label>Name</label><input
           type='text'
           placeholder='product name'
@@ -60,7 +63,7 @@ function NewBeer(props) {
   );
 }
 NewBeer.propTypes = {
-  createBeer: PropTypes.func,
+  addBeer: PropTypes.func,
 };
 
 export default NewBeer;

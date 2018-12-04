@@ -4,22 +4,11 @@ import PropTypes from 'prop-types';
 
 function Beer(props) {
 
-  var beerRows = {
-    display: 'flex',
-    border: '3px solid rgb(19, 36, 115)',
-    backgroundColor: 'white',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    minHeight: '110px',
-    marginBottom: '14px',
-    padding: '0px 12px',
-  };
-
-  <style global jsx>{`
+<style global jsx>{`
    .design {
-     color: var(--blueblack);
-     border: 3px solid var(--blueblack);
-     background-color: var(--light-peach);
+     color: blue ;
+     border: 3px solid gold;
+     background-color: red;
      width: 170px;
      height: 75px;
      display: flex;
@@ -37,7 +26,7 @@ function Beer(props) {
    }
 
    button{
-     background-color: var(--light-peach);
+     background-color: red;
      width: 100px;
      height: 60px;
      border: 3px solid black;
@@ -45,8 +34,18 @@ function Beer(props) {
      font-size: 1em;
    }
    `}
-  </style>
+    </style>
 
+  var beerRows = {
+    display: 'flex',
+    border: '3px solid rgb(19, 36, 115)',
+    backgroundColor: 'white',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    minHeight: '110px',
+    marginBottom: '14px',
+    padding: '0px 12px',
+  };
 
   const adminBeer =
     <div style={beerRows}>
@@ -82,9 +81,10 @@ function Beer(props) {
         <p>{props.remaining} Left</p>
       </div>
       <div className="designTwo">
-        <button>Pour</button>
+        <button>Order</button>
       </div>
     </div>;
+
   if (props.currentRouterPath === '/admin') {
     return (
       <div style={{ display: 'flex', flexFlow: 'column nowrap', justifyContent: 'center', width: '73%' }}>
