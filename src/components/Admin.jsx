@@ -6,8 +6,6 @@ import EditBeer from './EditBeer';
 
 
 function Admin(props) {
-  console.log(props.selectedKeg);
-
   var adminStyle = {
     display: 'flex',
     flexFlow: 'column nowrap',
@@ -15,7 +13,7 @@ function Admin(props) {
   };
   let optionalContent = null;
   if (props.selectedBeer != null) {
-    optionalContent = <EditBeer selectedKeg={props.kegList[props.selectedKeg]} startEdit={props.startEdit}/>;
+    optionalContent = <EditBeer selectedBeer={props.beerList[props.selectedBeer]} startEdit={props.startEdit}/>;
   }
   return(
     <div style={adminStyle}>
@@ -24,21 +22,21 @@ function Admin(props) {
         {optionalContent}
       </div>
       <BeerList
-        kegList={props.kegList}
+        beerList={props.beerList}
         currentRouterPath={props.currentRouterPath}
-        onKegSelection={props.onKegSelection}/>
+        onBeerSelection={props.onBeerSelection}/>
     </div>
   );
 
 }
 
 Admin.propTypes = {
-  kegList: PropTypes.object,
+  BeerList: PropTypes.object,
   currentRouterPath: PropTypes.string.isRequired,
-  onNewKeg: PropTypes.func,
-  onKegSelection: PropTypes.func.isRequired,
-  selectedKeg: PropTypes.string,
-  onEditKeg: PropTypes.func
+  addBeer: PropTypes.func,
+  onBeerSelection: PropTypes.func.isRequired,
+  selectedBeer: PropTypes.string,
+  startEdit: PropTypes.func
 };
 
 

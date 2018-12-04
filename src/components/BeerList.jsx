@@ -1,20 +1,29 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Beer from './BeerPage';
 
 
 function BeerList(props){
+  var listStyle = {
+    display: 'flex',
+    width: '100%',
+    flexFlow: 'column nowrap',
+    justifyContent: 'center',
+    alignItems: 'center'
+  };
+
   return (
-    <div>
-       {Object.keys(props.kegList).map(function(key) {
-        var beer = props.kegList[key];
-        return <Beers name={beer.name}
+    <div style={listStyle}>
+       {Object.keys(props.beerList).map(function(key) {
+        var beer = props.beerList[key];
+        return <Beer name={beer.name}
         type={beer.type}
         price={beer.price}
         remaining={beer.remaining}
         currentRouterPath={props.currentRouterPath}
         key={key}
         beerId={key}
-        onKegSelection={props.onKegSelection}/>;
+        selectedBeer={props.onBeerSelection}/>;
       })}
     </div>
   );
@@ -23,7 +32,7 @@ function BeerList(props){
 BeerList.propTypes = {
   beerStock: PropTypes.object,
   currentRouterPath: PropTypes.string,
-  onKegSelection: PropTypes.func
+  onBeerSelection: PropTypes.func
 };
 
 export default BeerList;

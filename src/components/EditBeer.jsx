@@ -27,7 +27,7 @@ function EditBeer(props) {
         <label>Name</label><input
           type='text'
           id='name'
-        //   placeholder={props.selectedBeer.name}
+          placeholder={props.currentBeer.name}
           ref={(input) => {_name = input;}} />
         <br />
         <hr />
@@ -36,7 +36,7 @@ function EditBeer(props) {
         <input
           type='text'
           id='type'
-        //   placeholder={props.selectedBeer.type} 
+          placeholder={props.currentBeer.type} 
           ref={(input) => {_type = input;}} />
         <br />
         <hr />
@@ -45,7 +45,7 @@ function EditBeer(props) {
         <input
           type='text'
           id='price'
-        //   placeholder={props.selectedBeer.price}
+          placeholder={props.currentBeer.price}
           ref={(input) => {_price = input;}} />
         <br />
         <hr />
@@ -54,7 +54,7 @@ function EditBeer(props) {
         <input
           type='text'
           id='remaining'
-        //   placeholder={props.selectedBeer.remaining}
+          placeholder={props.currentBeer.remaining}
           ref={(input) => {_remaining = input;}}  />
         <br />
         <hr />
@@ -64,7 +64,7 @@ function EditBeer(props) {
   );
 }
 EditBeer.propTypes = {
-  selectedBeer: PropTypes.object,
+  currentBeer: PropTypes.object,
   startEdit: PropTypes.func,
 };
 
