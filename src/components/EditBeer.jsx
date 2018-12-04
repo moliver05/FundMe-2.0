@@ -10,7 +10,7 @@ function EditBeer(props) {
 
   function handleEditBeer(event) {
     event.preventDefault();
-    props.startEdit({name: _name.value,
+    props.editBeer({name: _name.value,
                       type: _type.value,
                       price: _price.value,
                       remaining: _remaining.value});
@@ -65,7 +65,7 @@ function EditBeer(props) {
 }
 EditBeer.propTypes = {
   currentBeer: PropTypes.object,
-  startEdit: PropTypes.func,
+  editBeer: PropTypes.func,
 };
 
 export default EditBeer;

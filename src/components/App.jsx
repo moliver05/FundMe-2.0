@@ -83,8 +83,11 @@ constructor(props) {
 
   this.handleAddNewBeer = this.handleAddNewBeer.bind(this);
   this.handleBeerSelection = this.handleBeerSelection.bind(this);
-  // this.HappyHourSchedule = this.HappyHourSchedule.bind(this);
   this.handleEditBeer = this.handleEditBeer.bind(this);
+  this.handleDeleteBeer = this.handleDeleteBeer.bind(this);
+  // this.HappyHourSchedule = this.HappyHourSchedule.bind(this);
+
+
 };
 
 handleAddNewBeer(newBeer){
@@ -95,9 +98,9 @@ handleAddNewBeer(newBeer){
     this.setState({masterBeerStock: newMasterBeerStock});
   }
 
-handleEditBeer(beer){
+handleEditBeer(editBeer){
   let newMasterBeerStock = Object.assign({}, this.state.masterBeerStock, {
-    [this.state.selectedBeer]: beer });
+    [this.state.selectedBeer]: editBeer });
   this.setState({masterBeerStock: newMasterBeerStock});
 }
 
@@ -105,9 +108,16 @@ handleBeerSelection(beerId){
   this.setState({selectedBeer: beerId});
 }
 
-HappyHourSchedule () {
- this.beers.price -= 3;
-}
+handleDeleteBeer (beerId) {
+  let newMasterBeerStock = Object.assign({},
+    this.state.masterBeerStock);
+    delete newMasterBeerStock[beerId]
+    this.setState({masterBeerStock: newMasterBeerStock})
+    ;
+  }
+// HappyHourSchedule () {
+
+// }
 
 render(){
   return (
@@ -121,9 +131,11 @@ render(){
         beerList={this.state.masterBeerStock}
               currentRouterPath={props.location.pathname}
               addBeer={this.handleAddNewBeer}
+              deleteBeer={this.handleDeleteBeer}
               onBeerSelection={this.handleBeerSelection}
+              onBeerDelete={this.handleDeleteBeer}
               selectedBeer={this.state.selectedbeer}
-              onEditBeer={this.handleEditBeer}/>} />
+              editBeer={this.handleEditBeer}/>} />
           }/> 
           <Route component={Error404} />
         </Switch>

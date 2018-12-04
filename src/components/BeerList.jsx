@@ -14,7 +14,7 @@ function BeerList(props){
 
   return (
     <div style={listStyle}>
-       {Object.keys(props.beerList).map(function(key) {
+       {Object.keys(props.beerList).map(function(key, index) {
         var beer = props.beerList[key];
         return <Beer name={beer.name}
         type={beer.type}
@@ -23,7 +23,9 @@ function BeerList(props){
         currentRouterPath={props.currentRouterPath}
         key={key}
         beerId={key}
-        selectedBeer={props.onBeerSelection}/>;
+        onBeerSelection={props.onBeerSelection}
+        onBeerDelete={props.onBeerDelete}
+        />;
       })}
     </div>
   );
@@ -32,7 +34,8 @@ function BeerList(props){
 BeerList.propTypes = {
   beerStock: PropTypes.object,
   currentRouterPath: PropTypes.string,
-  onBeerSelection: PropTypes.func
+  onBeerSelection: PropTypes.func,
+  onBeerDelete: PropTypes.func
 };
 
 export default BeerList;

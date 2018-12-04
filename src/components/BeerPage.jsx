@@ -47,6 +47,10 @@ function Beer(props) {
     padding: '0px 12px',
   };
 
+  function handleDelete() {
+    props.onBeerDelete(props.index)
+  }
+
   const adminBeer =
     <div style={beerRows}>
       <div className="design">
@@ -62,7 +66,8 @@ function Beer(props) {
         <p>{props.remaining} left</p>
       </div>
       <div className="designTwo">
-        <button onClick={() => { props.onBeerSelection(props.kegId); }}>Edit</button>
+        <button onClick={() => { props.onBeerSelection(props.beerId); }}>Edit</button>
+        <button onClick={()=>props.onBeerDelete(props.beerId)}>Delete</button>
       </div>
     </div>;
 
@@ -106,7 +111,8 @@ Beer.propTypes = {
   remaining: PropTypes.string,
   currentRouterPath: PropTypes.string,
   beerId: PropTypes.string.isRequired,
-  onBeerSelection: PropTypes.func
+  onBeerSelection: PropTypes.func,
+  deleteBeer: PropTypes.func
 };
 
 export default Beer;

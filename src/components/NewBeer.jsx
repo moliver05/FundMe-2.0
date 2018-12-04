@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 function NewBeer(props) {
 
   var styles={
-    color: 'white'
+    color: 'white',
+    
   }
   let _name = null;
   let _price = null;
@@ -26,6 +27,7 @@ function NewBeer(props) {
 
   return (
     <div style={styles}>
+      <h2>Add New Beer:</h2>
        <form onSubmit={handleAddNewBeer}>
         <label>Name</label><input
           type='text'

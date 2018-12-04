@@ -8,8 +8,7 @@ import EditBeer from './EditBeer';
 function Admin(props) {
   var adminStyle = {
     display: 'flex',
-    flexFlow: 'column nowrap',
-    alignItems: 'center'
+    flexFlow: 'column nowrap'
   };
   let optionalContent = null;
   if (props.selectedBeer != null) {
@@ -24,7 +23,9 @@ function Admin(props) {
       <BeerList
         beerList={props.beerList}
         currentRouterPath={props.currentRouterPath}
-        onBeerSelection={props.onBeerSelection}/>
+        onBeerSelection={props.onBeerSelection}
+        onBeerDelete={props.onBeerDelete}
+        />
     </div>
   );
 
@@ -34,6 +35,7 @@ Admin.propTypes = {
   BeerList: PropTypes.object,
   currentRouterPath: PropTypes.string.isRequired,
   addBeer: PropTypes.func,
+  onBeerDelete: PropTypes.func.isRequired,
   onBeerSelection: PropTypes.func.isRequired,
   selectedBeer: PropTypes.string,
   startEdit: PropTypes.func
