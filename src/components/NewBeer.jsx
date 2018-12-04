@@ -6,6 +6,7 @@ function NewBeer(props) {
 
   var styles={
     color: 'white',
+    border: '2px solid orange'
     
   }
   let _name = null;
@@ -39,7 +40,7 @@ function NewBeer(props) {
       <label>Type</label>
         <input
           type='text'
-          placeholder='$$' 
+          placeholder='ipa, cider, etc..' 
           ref={(input) => {_type = input;}} />
         <br />
         <hr />
@@ -54,12 +55,12 @@ function NewBeer(props) {
 
         <label>Remaining</label>
         <input
-          type='text'
+          type='number'
           placeholder='Stocks'
           ref={(input) => {_remaining = input;}}  />
         <br />
         <hr />
-        <button className="btn btn-success" type='submit'>ADD!</button>
+        <button className="btn btn-success" type='submit'>ADD</button>
       </form>
     </div>
   );

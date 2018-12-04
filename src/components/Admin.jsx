@@ -10,23 +10,29 @@ function Admin(props) {
     display: 'flex',
     flexFlow: 'column nowrap'
   };
-  let optionalContent = null;
+  var optionalContent = null;
   if (props.selectedBeer != null) {
-    optionalContent = <EditBeer selectedBeer={props.beerList[props.selectedBeer]} startEdit={props.startEdit}/>;
+    optionalContent = 
+    <EditBeer 
+    selectedBeer={props.beerList[props.selectedBeer]} startEdit={props.startEdit}/>;
   }
   return(
     <div style={adminStyle}>
-      <div style={{display:'flex',justifyContent:'space-around', width:'100%',marginBottom:'40px'}}>
+      <div style={{display:'flex', 
+      width:'100%',
+      marginBottom:'40px',
+      color: 'white'}}>
         <NewBeer addBeer={props.addBeer}/>
-        {optionalContent}
       </div>
+      {optionalContent}
+      <br/>
       <BeerList
         beerList={props.beerList}
         currentRouterPath={props.currentRouterPath}
         onBeerSelection={props.onBeerSelection}
         onBeerDelete={props.onBeerDelete}
         selectedBeer={props.selectedBeer}
-        startEdit={props.startEdit}
+        onBeerEdit={props.onBeerEdit}
         />
     </div>
   );
@@ -39,8 +45,8 @@ Admin.propTypes = {
   addBeer: PropTypes.func,
   onBeerDelete: PropTypes.func.isRequired,
   onBeerSelection: PropTypes.func.isRequired,
+  onBeerEdit: PropTypes.func,
   selectedBeer: PropTypes.string,
-  startEdit: PropTypes.func
 };
 
 

@@ -44,7 +44,7 @@ function Beer(props) {
     alignItems: 'center',
     minHeight: '110px',
     marginBottom: '14px',
-    padding: '0px 12px',
+    padding: '10px',
   };
 
   const adminBeer =
@@ -62,8 +62,8 @@ function Beer(props) {
         <p>{props.remaining} left</p>
       </div>
       <div className="designTwo">
-        <button onClick={() => { props.onBeerSelection(props.beerId); }}>Edit</button>
-        <button onClick={()=> {props.onBeerDelete(props.beerId)}}>Delete</button>
+        <button className="btn btn-info" onClick={() => { props.onBeerSelection(props.beerId); }}>Edit</button> <br/>
+        <button className="btn btn-danger" onClick={()=> {props.onBeerDelete(props.beerId)}}>Delete</button>
       </div>
     </div>;
 
@@ -82,7 +82,7 @@ function Beer(props) {
         <p>{props.remaining} Left</p>
       </div>
       <div className="designTwo">
-        <button onClick={()=> {props.onBeerReduce(props.beerId)}}>Order</button>
+        <button className="btn btn-primary" onClick={()=> {props.onBeerReduce(props.beerId)}}>Order</button>
       </div>
     </div>;
 

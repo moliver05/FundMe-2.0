@@ -95,9 +95,9 @@ handleAddNewBeer(newBeer){
     this.setState({masterBeerStock: newMasterBeerStock});
   }
 
-handleEditBeer(editBeer){
+handleEditBeer(editedBeer){
   let newMasterBeerStock = Object.assign({}, this.state.masterBeerStock, {
-    [this.state.selectedBeer]: editBeer });
+    [this.state.selectedBeer]: editedBeer });
   this.setState({masterBeerStock: newMasterBeerStock});
 }
 
@@ -115,7 +115,7 @@ handleDeleteBeer (beerId) {
 handleReduceBeer (beerId)  {
     let newMasterBeerStock = Object.assign({},
       this.state.masterBeerStock);
-    (newMasterBeerStock[beerId].remaining -=1)
+    (newMasterBeerStock[beerId].remaining -=1)   
     this.setState({masterBeerStock: newMasterBeerStock});
   }
 
@@ -136,8 +136,8 @@ render(){
               addBeer={this.handleAddNewBeer}
               onBeerSelection={this.handleBeerSelection}
               onBeerDelete={this.handleDeleteBeer}
-              selectedBeer={this.state.selectedbeer}
-              editBeer={this.handleEditBeer}/> 
+              selectedBeer={this.state.selectedBeer}
+              onBeerEdit={this.handleEditBeer}/> 
               } />
           }/> 
           <Route component={Error404} />

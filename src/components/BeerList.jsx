@@ -26,6 +26,7 @@ function BeerList(props){
         onBeerSelection={props.onBeerSelection}
         onBeerDelete={props.onBeerDelete}
         onBeerReduce = {props.onBeerReduce}
+        onBeerEdit = {props.onBeerEdit}
         />;
       })}
     </div>
@@ -36,7 +37,9 @@ BeerList.propTypes = {
   beerStock: PropTypes.object,
   currentRouterPath: PropTypes.string,
   onBeerSelection: PropTypes.func,
-  onBeerDelete: PropTypes.func
+  onBeerDelete: PropTypes.func,
+  onBeerEdit: PropTypes.func,
+  onBeerSelection: PropTypes.func,
 };
 
 export default BeerList;

@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 
 function EditBeer(props) {
 
+  var styles = {
+    color: 'white',
+    border: '2px solid orange',
+    widith: '100%'
+  }
+
   let _name = null;
   let _price = null;
   let _type = null;
@@ -10,7 +16,7 @@ function EditBeer(props) {
 
   function handleEditBeer(event) {
     event.preventDefault();
-    props.editBeer({name: _name.value,
+    props.onBeerEdit({name: _name.value,
                       type: _type.value,
                       price: _price.value,
                       remaining: _remaining.value});
@@ -21,13 +27,13 @@ function EditBeer(props) {
   };
 
   return (
-    <div>
+    <div style={styles}>
        <form onSubmit={handleEditBeer}>
        <h2>Edit</h2>
         <label>Name</label><input
           type='text'
           id='name'
-          placeholder={props.currentBeer.name}
+          placeholder={props.selectedBeer.name}
           ref={(input) => {_name = input;}} />
         <br />
         <hr />
@@ -36,7 +42,7 @@ function EditBeer(props) {
         <input
           type='text'
           id='type'
-          placeholder={props.currentBeer.type} 
+          placeholder={props.selectedBeer.type} 
           ref={(input) => {_type = input;}} />
         <br />
         <hr />
@@ -45,7 +51,7 @@ function EditBeer(props) {
         <input
           type='text'
           id='price'
-          placeholder={props.currentBeer.price}
+          placeholder={props.selectedBeer.price}
           ref={(input) => {_price = input;}} />
         <br />
         <hr />
@@ -54,7 +60,7 @@ function EditBeer(props) {
         <input
           type='text'
           id='remaining'
-          placeholder={props.currentBeer.remaining}
+          placeholder={props.selectedBeer.remaining}
           ref={(input) => {_remaining = input;}}  />
         <br />
         <hr />
@@ -64,8 +70,8 @@ function EditBeer(props) {
   );
 }
 EditBeer.propTypes = {
-  currentBeer: PropTypes.object,
-  editBeer: PropTypes.func,
+  selectedBeer: PropTypes.object,
+  onBeerEdit: PropTypes.func,
 };
 
 export default EditBeer;
