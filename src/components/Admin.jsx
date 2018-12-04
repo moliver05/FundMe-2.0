@@ -14,7 +14,7 @@ function Admin(props) {
   if (props.selectedBeer != null) {
     optionalContent = 
     <EditBeer 
-    selectedBeer={props.beerList[props.selectedBeer]} startEdit={props.startEdit}/>;
+    selectedBeer={props.beerList[props.selectedBeer]} onBeerEdit={props.onBeerEdit}/>;
   }
   return(
     <div style={adminStyle}>
