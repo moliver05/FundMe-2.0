@@ -86,7 +86,7 @@ constructor(props) {
   this.handleEditBeer = this.handleEditBeer.bind(this);
   this.handleDeleteBeer = this.handleDeleteBeer.bind(this);
   this.handleReduceBeer = this.handleReduceBeer.bind(this);
-  // this.HappyHourSchedule = this.HappyHourSchedule.bind(this);
+  this.HappyHour = this.HappyHour.bind(this);
 };
 
 handleAddNewBeer(newBeer){
@@ -120,6 +120,13 @@ handleReduceBeer (beerId)  {
     this.setState({masterBeerStock: newMasterBeerStock});
   }
 
+  handleHappyHour (beerId)  {
+    let newMasterBeerStock = Object.assign({},
+      this.state.masterBeerStock);
+    (newMasterBeerStock[beerId].remaining %=50)
+    this.setState({masterBeerStock: newMasterBeerStock});
+  }
+
 render(){
   return (
     <div style={styles}>
@@ -136,6 +143,7 @@ render(){
               addBeer={this.handleAddNewBeer}
               onBeerSelection={this.handleBeerSelection}
               onBeerDelete={this.handleDeleteBeer}
+              startHappy={this.handleHappyHour}
               selectedBeer={this.state.selectedbeer}
               editBeer={this.handleEditBeer}/> 
               } />
