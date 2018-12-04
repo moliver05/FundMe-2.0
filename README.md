@@ -10,16 +10,16 @@ A website that allows the admin to create, delete and edit the Beer List. A rebu
 
 ### Project Structure
  
- > ============> [ A P P (state) ] <==================== <
- ^                 /          \                          ^
- ^                /            \                         ^
- ^     ( CUSTOMERS )          ( ADMIN )                  ^
- ^            |                    |                     ^
- ^            |                    |                     ^
- ^      ( BEER LIST )<-------( CUSTOMIZE BEER LIST )     ^ 
- ^            |                    |                     ^
- ^            |                    |                     ^
- ^ <===== ( ORDER )           ( ADD, DELETE, EDIT ) ===> ^
+ ## > ============> [ A P P (state) ] <==================== <
+ ## ^                 /          \                          ^
+ ## ^                /            \                         ^
+ ## ^     ( CUSTOMERS )          ( ADMIN )                  ^
+ ## ^            |                    |                     ^
+ ## ^            |                    |                     ^
+ ## ^      ( BEER LIST )<-------( CUSTOMIZE BEER LIST )     ^ 
+ ## ^            |                    |                     ^
+ ## ^            |                    |                     ^
+ ## ^ <===== ( ORDER )           ( ADD, DELETE, EDIT ) ===> ^
       
 
 ## Setup/Installation Requirements
