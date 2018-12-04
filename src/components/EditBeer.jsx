@@ -58,7 +58,7 @@ function EditBeer(props) {
           ref={(input) => {_remaining = input;}}  />
         <br />
         <hr />
-        <button className="btn btn-success" type='submit'>Done</button>
+        <button type='submit'>Done</button>
       </form>
     </div>
   );

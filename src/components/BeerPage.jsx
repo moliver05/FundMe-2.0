@@ -47,10 +47,6 @@ function Beer(props) {
     padding: '0px 12px',
   };
 
-  function handleDelete() {
-    props.onBeerDelete(props.index)
-  }
-
   const adminBeer =
     <div style={beerRows}>
       <div className="design">
@@ -67,7 +63,7 @@ function Beer(props) {
       </div>
       <div className="designTwo">
         <button onClick={() => { props.onBeerSelection(props.beerId); }}>Edit</button>
-        <button onClick={()=>props.onBeerDelete(props.beerId)}>Delete</button>
+        <button onClick={()=> {props.onBeerDelete(props.beerId)}}>Delete</button>
       </div>
     </div>;
 
@@ -86,7 +82,7 @@ function Beer(props) {
         <p>{props.remaining} Left</p>
       </div>
       <div className="designTwo">
-        <button>Order</button>
+        <button onClick={()=> {props.onBeerReduce(props.beerId)}}>Order</button>
       </div>
     </div>;
 
@@ -108,11 +104,12 @@ Beer.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   price: PropTypes.string.isRequired,
-  remaining: PropTypes.string,
+  remaining: PropTypes.number,
   currentRouterPath: PropTypes.string,
   beerId: PropTypes.string.isRequired,
   onBeerSelection: PropTypes.func,
-  deleteBeer: PropTypes.func
+  onBeerDelete: PropTypes.func,
+  onBeerReduce: PropTypes.func
 };
 
 export default Beer;

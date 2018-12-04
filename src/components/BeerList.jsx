@@ -25,6 +25,7 @@ function BeerList(props){
         beerId={key}
         onBeerSelection={props.onBeerSelection}
         onBeerDelete={props.onBeerDelete}
+        onBeerReduce = {props.onBeerReduce}
         />;
       })}
     </div>

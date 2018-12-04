@@ -39,43 +39,43 @@ constructor(props) {
       name: 'Heineken',
       type: 'Pale Lager',
       price: '5.50',
-      remaining: '20'
+      remaining: 20
     },
     'beer-2': {
       name: 'Guiness',
       type: 'Draught',
       price: '6.00',
-      remaining: '20'
+      remaining: 20
     },
     'beer-3': {
       name: 'Fruli Strawberry Beer',
       type: 'Fruit',
       price: '4.00',
-      remaining: '20'
+      remaining: 20
     },
     'beer-4': {
       name: 'Double Drooling Dog',
       type: 'I.P.A',
       price: '4.00',
-      remaining: '20'
+      remaining: 20
     },
     'beer-4': {
       name: 'Corona Light',
       type: 'Light',
       price: '4.00',
-      remaining: '20'
+      remaining: 20
     },
     'beer-5': {
       name: 'Moison XXX',
       type: 'Strong',
       price: '8.00',
-      remaining: '20'
+      remaining: 20
     },
     'beer-6': {
       name: 'Hoegaarden',
       type: 'Wheat',
       price: '6.00',
-      remaining: '20'
+      remaining: 20
     }
   },
   selectedBeer: null
@@ -85,16 +85,14 @@ constructor(props) {
   this.handleBeerSelection = this.handleBeerSelection.bind(this);
   this.handleEditBeer = this.handleEditBeer.bind(this);
   this.handleDeleteBeer = this.handleDeleteBeer.bind(this);
+  this.handleReduceBeer = this.handleReduceBeer.bind(this);
   // this.HappyHourSchedule = this.HappyHourSchedule.bind(this);
-
-
 };
 
 handleAddNewBeer(newBeer){
     let newBeerId = v4();
     let newMasterBeerStock = Object.assign({}, this.state.masterBeerStock, {
-      [newBeerId]: newBeer
-    });
+      [newBeerId]: newBeer});
     this.setState({masterBeerStock: newMasterBeerStock});
   }
 
@@ -112,12 +110,15 @@ handleDeleteBeer (beerId) {
   let newMasterBeerStock = Object.assign({},
     this.state.masterBeerStock);
     delete newMasterBeerStock[beerId]
-    this.setState({masterBeerStock: newMasterBeerStock})
-    ;
+    this.setState({masterBeerStock: newMasterBeerStock});
   }
-// HappyHourSchedule () {
 
-// }
+handleReduceBeer (beerId)  {
+    let newMasterBeerStock = Object.assign({},
+      this.state.masterBeerStock);
+    (newMasterBeerStock[beerId].remaining -=1)
+    this.setState({masterBeerStock: newMasterBeerStock});
+  }
 
 render(){
   return (
@@ -126,16 +127,18 @@ render(){
       <Header />
       <div style={bodyStyle}>
         <Switch>
-        <Route exact path='/'render={()=><BeerList beerList={this.state.masterBeerStock} />} />
+        <Route exact path='/'render={()=>
+        <BeerList beerList={this.state.masterBeerStock} 
+                  onBeerReduce={this.handleReduceBeer}/>} />
         <Route exact path='/admin' render={(props)=><Admin
         beerList={this.state.masterBeerStock}
               currentRouterPath={props.location.pathname}
               addBeer={this.handleAddNewBeer}
-              deleteBeer={this.handleDeleteBeer}
               onBeerSelection={this.handleBeerSelection}
               onBeerDelete={this.handleDeleteBeer}
               selectedBeer={this.state.selectedbeer}
-              editBeer={this.handleEditBeer}/>} />
+              editBeer={this.handleEditBeer}/> 
+              } />
           }/> 
           <Route component={Error404} />
         </Switch>

@@ -25,6 +25,8 @@ function Admin(props) {
         currentRouterPath={props.currentRouterPath}
         onBeerSelection={props.onBeerSelection}
         onBeerDelete={props.onBeerDelete}
+        selectedBeer={props.selectedBeer}
+        startEdit={props.startEdit}
         />
     </div>
   );
