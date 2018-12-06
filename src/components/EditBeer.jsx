@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 function EditBeer(props) {
 
   var styles = {
     color: 'white',
     border: '2px solid orange',
     widith: '100%'
-  }
+  };
 
   let _name = null;
   let _price = null;
@@ -16,34 +15,36 @@ function EditBeer(props) {
 
   function handleEditBeer(event) {
     event.preventDefault();
-    props.onBeerEdit({name: _name.value,
-                      type: _type.value,
-                      price: _price.value,
-                      remaining: _remaining.value});
-    _name.value='';
-    _type.value='';
-    _price.value='';
-    _remaining.value='';
-  };
+    props.onBeerEdit({
+      name: _name.value,
+      type: _type.value,
+      price: _price.value,
+      remaining: _remaining.value
+    });
+    _name.value = '';
+    _type.value = '';
+    _price.value = '';
+    _remaining.value = '';
+  }
 
   return (
     <div style={styles}>
-       <form onSubmit={handleEditBeer}>
-       <h2>Edit</h2>
+      <form onSubmit={handleEditBeer}>
+        <h2>Edit</h2>
         <label>Name</label><input
           type='text'
           id='name'
           placeholder={props.selectedBeer.name}
-          ref={(input) => {_name = input;}} />
+          ref={(input) => { _name = input; }} />
         <br />
         <hr />
 
-      <label>Type</label>
+        <label>Type</label>
         <input
           type='text'
           id='type'
-          placeholder={props.selectedBeer.type} 
-          ref={(input) => {_type = input;}} />
+          placeholder={props.selectedBeer.type}
+          ref={(input) => { _type = input; }} />
         <br />
         <hr />
 
@@ -52,7 +53,7 @@ function EditBeer(props) {
           type='text'
           id='price'
           placeholder={props.selectedBeer.price}
-          ref={(input) => {_price = input;}} />
+          ref={(input) => { _price = input; }} />
         <br />
         <hr />
 
@@ -61,7 +62,7 @@ function EditBeer(props) {
           type='text'
           id='remaining'
           placeholder={props.selectedBeer.remaining}
-          ref={(input) => {_remaining = input;}}  />
+          ref={(input) => { _remaining = input; }} />
         <br />
         <hr />
         <button type='submit'>Done</button>
@@ -70,6 +71,10 @@ function EditBeer(props) {
   );
 }
 EditBeer.propTypes = {
+  name: PropTypes.string,
+  type: PropTypes.string,
+  price: PropTypes.number,
+  remaining: PropTypes.number,
   selectedBeer: PropTypes.object,
   onBeerEdit: PropTypes.func,
 };

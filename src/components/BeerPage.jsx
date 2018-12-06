@@ -1,88 +1,77 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 function Beer(props) {
 
-<style global jsx>{`
-   .design {
-     color: blue ;
-     border: 3px solid gold;
-     background-color: red;
-     width: 170px;
-     height: 75px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     margin-right: 8px;
-   }
-   .designTwo {
-     width: 170px;
-     height: 75px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     margin-right: 8px;
-   }
+  var design = {
+    color: 'skyblue',
+    fontWeight: 'bolder',
+    opacity: '1',
+    width: '100%',
+    height: 'auto',
+    display: 'block',
+    justifyContent: 'space-between',
+    margin: '20px'
+  };
 
-   button{
-     background-color: red;
-     width: 100px;
-     height: 60px;
-     border: 3px solid black;
-     border-radius: 25px;
-     font-size: 1em;
-   }
-   `}
-    </style>
+  var designTwo = {
+    width: '100%',
+    height: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    marginRight: '8px',
+  };
 
   var beerRows = {
     display: 'flex',
-    border: '3px solid rgb(19, 36, 115)',
-    backgroundColor: 'white',
+    border: '3px dotted yellow',
+    backgroundColor: 'transparent',
     justifyContent: 'space-around',
     alignItems: 'center',
     minHeight: '110px',
     marginBottom: '14px',
     padding: '10px',
+    borderRadius: '35px'
   };
 
   const adminBeer =
     <div style={beerRows}>
-      <div className="design">
+      <div style={design}>
         <p>{props.name}</p>
       </div>
-      <div className="design">
+      <div style={design}>
         <p>{props.type}</p>
       </div>
-      <div className="design">
+      <div style={design}>
         <p>{props.price}</p>
       </div>
-      <div className="design">
+      <div style={design}>
         <p>{props.remaining} left</p>
       </div>
-      <div className="designTwo">
-        <button className="btn btn-info" onClick={() => { props.onBeerSelection(props.beerId); }}>Edit</button> <br/>
-        <button className="btn btn-danger" onClick={()=> {props.onBeerDelete(props.beerId)}}>Delete</button>
+      <div style={designTwo}>
+        <button className="btn btn-info" onClick={() => { props.onBeerSelection(props.beerId); }}><h3>Edit</h3></button> <br />
+        <button className="btn btn-danger" onClick={() => { props.onBeerDelete(props.beerId); }}><h3>Delete</h3></button>
       </div>
     </div>;
 
   const menuBeer =
     <div style={beerRows}>
-      <div className="design">
+      <div style={design}>
         <p>{props.name}</p>
       </div>
-      <div className="design">
+      <div style={design}>
         <p>{props.type}</p>
       </div>
-      <div className="design">
+      <div style={design}>
         <p>{props.price}</p>
       </div>
-      <div className="design">
+      <div style={design}>
         <p>{props.remaining} Left</p>
       </div>
-      <div className="designTwo">
-        <button className="btn btn-primary" onClick={()=> {props.onBeerReduce(props.beerId)}}>Order</button>
+      <div style={designTwo}>
+        <button className="btn btn-primary" onClick={() => {
+          props.onBeerReduce(props.beerId);
+        }}><h3>Order</h3></button>
       </div>
     </div>;
 
@@ -101,15 +90,15 @@ function Beer(props) {
   }
 }
 Beer.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.string,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number,
   remaining: PropTypes.number,
-  currentRouterPath: PropTypes.string,
-  beerId: PropTypes.string.isRequired,
-  onBeerSelection: PropTypes.func,
-  onBeerDelete: PropTypes.func,
-  onBeerReduce: PropTypes.func
+  currentRouterPath: PropTypes.string.isRequired,
+  beerId: PropTypes.string,
+  onBeerSelection: PropTypes.func.isRequired,
+  onBeerDelete: PropTypes.func.isRequired,
+  onBeerReduce: PropTypes.func.isRequired
 };
 
 export default Beer;

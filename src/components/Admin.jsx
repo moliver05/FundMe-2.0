@@ -1,8 +1,9 @@
 import React from 'react';
 import NewBeer from './NewBeer';
-import BeerList from  './BeerList';
+import BeerList from './BeerList';
 import PropTypes from 'prop-types';
 import EditBeer from './EditBeer';
+import Beer from './BeerPage';
 
 
 function Admin(props) {
@@ -10,22 +11,26 @@ function Admin(props) {
     display: 'flex',
     flexFlow: 'column nowrap'
   };
+
   var optionalContent = null;
+
   if (props.selectedBeer != null) {
-    optionalContent = 
-    <EditBeer 
-    selectedBeer={props.beerList[props.selectedBeer]} onBeerEdit={props.onBeerEdit}/>;
+    optionalContent =
+      <EditBeer
+        selectedBeer={props.beerList[props.selectedBeer]} onBeerEdit={props.onBeerEdit} />;
   }
-  return(
+  return (
     <div style={adminStyle}>
-      <div style={{display:'flex', 
-      width:'100%',
-      marginBottom:'40px',
-      color: 'white'}}>
-        <NewBeer addBeer={props.addBeer}/>
+      <div style={{
+        display: 'flex',
+        width: '100%',
+        marginBottom: '40px',
+        color: 'white'
+      }}>
+        <NewBeer addBeer={props.addBeer} />
       </div>
       {optionalContent}
-      <br/>
+      <br />
       <BeerList
         beerList={props.beerList}
         currentRouterPath={props.currentRouterPath}
@@ -33,7 +38,7 @@ function Admin(props) {
         onBeerDelete={props.onBeerDelete}
         selectedBeer={props.selectedBeer}
         onBeerEdit={props.onBeerEdit}
-        />
+      />
     </div>
   );
 

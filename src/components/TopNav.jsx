@@ -13,14 +13,16 @@ function TopNav(){
     
   };
   var headStyles = {
-    right: '200px',
+    right: '150px',
     top: '50px',
     position: 'absolute',
     fontSize: '40px',
     fontFamily: 'Georgia',
     fontStyle: 'bold',
-    color: 'lime',
-    textAlign: 'justify'
+    color: 'skyblue',
+    textAlign: 'justify',
+    border: '5px dashed red',
+    padding: '5px'
 
   };
   return (
