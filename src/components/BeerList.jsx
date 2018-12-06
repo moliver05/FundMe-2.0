@@ -14,7 +14,7 @@ function BeerList(props) {
 
   return (
     <div style={listStyle}>
-      {Object.keys(props.beerList).map(function (key, index) {
+      {Object.keys(props.beerList).map(function (key) {
         var beer = props.beerList[key];
         return <Beer name={beer.name}
           type={beer.type}

@@ -31,7 +31,8 @@ function Beer(props) {
     minHeight: '110px',
     marginBottom: '14px',
     padding: '10px',
-    borderRadius: '35px'
+    borderRadius: '35px',
+    width: 'auto'
   };
 
   const adminBeer =
@@ -94,11 +95,11 @@ Beer.propTypes = {
   type: PropTypes.string,
   price: PropTypes.number,
   remaining: PropTypes.number,
-  currentRouterPath: PropTypes.string.isRequired,
+  currentRouterPath: PropTypes.string,
   beerId: PropTypes.string,
-  onBeerSelection: PropTypes.func.isRequired,
-  onBeerDelete: PropTypes.func.isRequired,
-  onBeerReduce: PropTypes.func.isRequired
+  onBeerSelection: PropTypes.func,
+  onBeerDelete: PropTypes.func,
+  onBeerReduce: PropTypes.func
 };
 
 export default Beer;
